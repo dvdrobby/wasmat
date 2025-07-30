@@ -1,28 +1,73 @@
-<h1><?php echo lang('Auth.login_heading'); ?></h1>
-<p><?php echo lang('Auth.login_subheading'); ?></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<div id="infoMessage"><?php echo $message; ?></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?= $title ?></title>
 
-<?php echo form_open('auth/login'); ?>
+  <base href="<?= base_url('assets') ?>/">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
 
-<p>
-  <?php echo form_label(lang('Auth.login_identity_label'), 'identity'); ?>
-  <?php echo form_input($identity); ?>
-</p>
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="login-logo">
+      <b>Silahkan Login</b>
+    </div>
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Please login using username</p>
+        <div id="infoMessage"><?php echo $message; ?></div>
 
-<p>
-  <?php echo form_label(lang('Auth.login_password_label'), 'password'); ?>
-  <?php echo form_input($password); ?>
-</p>
+        <?php echo form_open('auth/login'); ?>
 
-<p>
-  <?php echo form_label(lang('Auth.login_remember_label'), 'remember'); ?>
-  <?php echo form_checkbox('remember', '1', false, 'id="remember"'); ?>
-</p>
+        <div class="input-group mb-3">
+          <?php echo form_input($identity); ?>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <?php echo form_input($password); ?>
 
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </div>
+          <!-- /.col -->
+        </div>
 
-<p><?php echo form_submit('submit', lang('Auth.login_submit_btn')); ?></p>
+        <?php echo form_close(); ?>
 
-<?php echo form_close(); ?>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+    <!-- /.login-box -->
 
-<p><a href="forgot_password"><?php echo lang('Auth.login_forgot_password'); ?></a></p>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+</body>
+
+</html>
