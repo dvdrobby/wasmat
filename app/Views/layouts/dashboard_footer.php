@@ -47,9 +47,55 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
+<!-- jsGrid -->
+<script src="plugins/jsgrid/demos/db.js"></script>
+<script src="plugins/jsgrid/jsgrid.min.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function() {
+        $("#jsGrid1").jsGrid({
+            height: "100%",
+            width: "100%",
+
+            sorting: true,
+            paging: true,
+
+            data: db.clients,
+
+            fields: [{
+                    name: "Name",
+                    type: "text",
+                    width: 150
+                },
+                {
+                    name: "Age",
+                    type: "number",
+                    width: 50
+                },
+                {
+                    name: "Address",
+                    type: "text",
+                    width: 200
+                },
+                {
+                    name: "Country",
+                    type: "select",
+                    items: db.countries,
+                    valueField: "Id",
+                    textField: "Name"
+                },
+                {
+                    name: "Married",
+                    type: "checkbox",
+                    title: "Is Married"
+                }
+            ]
+        });
+    });
+</script>
 </body>
 
 </html>

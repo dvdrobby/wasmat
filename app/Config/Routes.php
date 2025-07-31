@@ -22,3 +22,4 @@ $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes
     // ...
 });
 $routes->get('/dashboard', 'Dashboard::index');
+$routes->get('/pelanggaran', 'Pelanggaran::index');

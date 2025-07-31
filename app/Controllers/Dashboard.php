@@ -6,10 +6,14 @@ class Dashboard extends BaseController
 {
     public function index()
     {
+        $data = [
+            "title" => "Dashboard"
+        ];
+
         if (!$this->ionAuth->loggedIn()) {
             return redirect()->to('auth/login');
         }
 
-        return view('dashboard_view');
+        return view('dashboard_view', $data);
     }
 }
