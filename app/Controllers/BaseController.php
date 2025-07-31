@@ -46,10 +46,14 @@ abstract class BaseController extends Controller
     /**
      * @return void
      */
+
+    protected $ionAuth;
+
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
+        $this->ionAuth =  new \IonAuth\Libraries\IonAuth();
 
         // Preload any models, libraries, etc, here.
 

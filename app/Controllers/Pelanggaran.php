@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Dashboard extends BaseController
+class Pelanggaran extends BaseController
 {
     public function index()
     {
@@ -10,6 +10,6 @@ class Dashboard extends BaseController
             return redirect()->to('auth/login');
         }
 
-        return view('dashboard_view');
+        return view('pelanggaran_view');
     }
 }
