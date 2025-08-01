@@ -2,33 +2,33 @@
 
 namespace App\Controllers;
 
-class Pelanggaran extends BaseController
+class Pelapor extends BaseController
 {
     public function index()
     {
         $data = [
-            "title" => "Rekap Data",
-            "navigasi" => "pelanggaran"
+            "title" => "Data Pelapor/Penindak",
+            "navigasi" => "pelapor"
         ];
 
         if (!$this->ionAuth->loggedIn()) {
             return redirect()->to('auth/login');
         }
 
-        return view('pelanggaran/pelanggaran_view', $data);
+        return view('pelapor/pelapor_view', $data);
     }
 
     public function tambah()
     {
         $data = [
-            "title" => "Tambah Data Pelanggaran",
-            "navigasi" => "pelanggaran"
+            "title" => "Tambah Daftar Pelapor/Penindak",
+            "navigasi" => "pelapor"
         ];
 
         if (!$this->ionAuth->loggedIn()) {
             return redirect()->to('auth/login');
         }
 
-        return view('pelanggaran/tambah_view', $data);
+        return view('pelapor/tambah_pelapor_view', $data);
     }
 }

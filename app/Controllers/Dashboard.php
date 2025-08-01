@@ -7,7 +7,8 @@ class Dashboard extends BaseController
     public function index()
     {
         $data = [
-            "title" => "Dashboard"
+            "title" => "Dashboard",
+            "navigasi" => "Dashboard"
         ];
 
         if (!$this->ionAuth->loggedIn()) {

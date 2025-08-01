@@ -322,3 +322,6 @@
 </section>
 <!-- /.content -->
 <?= $this->include('layouts/dashboard_footer') ?>
+<!-- jsGrid -->
+<?= $this->include('layouts/javascript_loader') ?>
+<?= $this->include('layouts/closing_tag') ?>

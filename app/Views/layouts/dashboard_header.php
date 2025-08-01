@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- jsGrid -->
+    <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
+    <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
@@ -28,9 +31,7 @@
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-    <!-- jsGrid -->
-    <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
-    <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -133,15 +134,39 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>dashboard" class="nav-link <?= $title == 'Dashboard' ? 'active' : '' ?>">
+                            <a href="<?= base_url() ?>dashboard" class="nav-link <?= $navigasi == 'Dashboard' ? 'active' : '' ?>">
                                 <i class="fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>pelanggaran" class="nav-link <?= $title == 'Rekap Data' ? 'active' : '' ?>">
+                            <a href="<?= base_url() ?>pelanggaran" class="nav-link <?= $navigasi == 'pelanggaran' ? 'active' : '' ?>">
                                 <i class="fas fa-table"></i>
                                 <p>Rekap Data</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>klasifikasi" class="nav-link <?= $navigasi == 'klasifikasi' ? 'active' : '' ?>">
+                                <i class="fas fa-copy"></i>
+                                <p>Jenis Pelanggaran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>teguran" class="nav-link <?= $navigasi == 'teguran' ? 'active' : '' ?>">
+                                <i class="fas fa-columns"></i>
+                                <p>Level Teguran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>pelapor" class="nav-link <?= $navigasi == 'pelapor' ? 'active' : '' ?>">
+                                <i class="fas fa-plus-square"></i>
+                                <p>Data Pelapor/ Penindak</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>user" class="nav-link <?= $navigasi == '' ? 'active' : '' ?>">
+                                <i class="fas fa-user"></i>
+                                <p>User Manajemen</p>
                             </a>
                         </li>
                         <li class="nav-item">
