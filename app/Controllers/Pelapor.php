@@ -17,18 +17,4 @@ class Pelapor extends BaseController
 
         return view('pelapor/pelapor_view', $data);
     }
-
-    public function tambah()
-    {
-        $data = [
-            "title" => "Tambah Daftar Pelapor/Penindak",
-            "navigasi" => "pelapor"
-        ];
-
-        if (!$this->ionAuth->loggedIn()) {
-            return redirect()->to('auth/login');
-        }
-
-        return view('pelapor/tambah_pelapor_view', $data);
-    }
 }

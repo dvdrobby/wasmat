@@ -24,9 +24,6 @@ $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/pelanggaran', 'Pelanggaran::index');
 $routes->get('/pelanggaran/tambah', 'Pelanggaran::tambah');
-$routes->get('/teguran', 'Teguran::index');
-$routes->get('/teguran/tambah', 'Teguran::tambah');
 $routes->get('/klasifikasi', 'Klasifikasi::index');
-$routes->get('/klasifikasi/tambah', 'Klasifikasi::tambah');
+$routes->get('/teguran', 'Teguran::index');
 $routes->get('/pelapor', 'Pelapor::index');
-$routes->get('/pelapor/tambah', 'Pelapor::tambah');

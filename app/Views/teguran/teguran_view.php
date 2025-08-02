@@ -2,65 +2,127 @@
 
 <!-- Main content -->
 <section class="content">
-  <div class="card card-primary">
-    <div class="card-header">
-      <h3 class="card-title">Surat Peringatan</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <div class="row mb-3">
-        <div class="col-sm-12 col-md-6">
-          <a href="<?= base_url() ?>teguran/tambah" class="btn btn-primary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah</span></a>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-5">
+        <!-- /.col (left) -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Form Input Data Surat Peringatan</h3>
+          </div>
+          <form class="card-body" enctype="multipart/form-data" action="">
+            <!-- Date -->
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="nama_peringatan">Nama Surat Peringatan</label>
+                  <input type="text" class="form-control" id="nama_peringatan" name="nama_peringatan" placeholder="Nama Surat Peringatan">
+                </div>
+
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="reservationdate">Rentang Hari</label>
+                  <input type="number" class="form-control" id="range" name="range" placeholder="Jumlah hari" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="kota">Deskripsi</label>
+                  <textarea type="text" class="form-control" id="kota" name="kota" placeholder="Tuliskan deskripsi disini..."></textarea>
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+            <button type="submit" class="btn btn-primary">Tambahkan</button>
+          </form>
+          <!-- /.col (right) -->
         </div>
       </div>
-      <div id="jsGrid1"></div>
+      <div class="col-md-7">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Tingkatan Surat Peringatan</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 10px">No</th>
+                  <th>Jenis Pelanggaran</th>
+                  <th>Deskripsi</th>
+                  <th style="width: 40px">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td>
+                  <td>Update software</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-danger">55%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Clean database</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar bg-warning" style="width: 70%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-warning">70%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Cron job running</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar bg-primary" style="width: 30%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-primary">30%</span></td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Fix and squish bugs</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar bg-success" style="width: 90%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-success">90%</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer clearfix">
+            <ul class="pagination pagination-sm m-0 float-right">
+              <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.card -->
+      </div>
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
+  <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 
-<!-- Footer -->
+
 <?= $this->include('layouts/dashboard_footer') ?>
-
-
 <!-- jsGrid -->
 <?= $this->include('layouts/javascript_loader') ?>
-<script src="plugins/jsgrid/demos/db.js"></script>
-<script src="plugins/jsgrid/jsgrid.min.js"></script>
-
-<script>
-  $(function() {
-    $("#jsGrid1").jsGrid({
-      height: "100%",
-      width: "100%",
-
-      sorting: true,
-      paging: true,
-
-      data: [],
-
-      fields: [{
-          name: "name",
-          title: "Surat Peringatan",
-          type: "text",
-          width: 150
-        },
-        {
-          name: "range",
-          title: "Rentang Hari",
-          type: "number",
-          width: 100
-        },
-        {
-          name: "action",
-          type: "checkbox",
-          title: "Tindakan",
-          width: 50
-        }
-      ]
-    });
-  });
-</script>
 <?= $this->include('layouts/closing_tag') ?>

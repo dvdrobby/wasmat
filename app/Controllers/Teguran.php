@@ -17,18 +17,4 @@ class Teguran extends BaseController
 
         return view('teguran/teguran_view', $data);
     }
-
-    public function tambah()
-    {
-        $data = [
-            "title" => "Tambah Data Pelanggaran",
-            "navigasi" => "teguran"
-        ];
-
-        if (!$this->ionAuth->loggedIn()) {
-            return redirect()->to('auth/login');
-        }
-
-        return view('teguran/tambah_teguran_view', $data);
-    }
 }
