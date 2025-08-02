@@ -88,5 +88,9 @@
 <?= $this->include('layouts/dashboard_footer') ?>
 <!-- jsGrid -->
 <?= $this->include('layouts/javascript_loader') ?>
-
+<script>
+  $('#reservationdate').datetimepicker({
+    format: 'L'
+  });
+</script>
 <?= $this->include('layouts/closing_tag') ?>

@@ -77,13 +77,6 @@
 <!-- Footer -->
 <?= $this->include('layouts/dashboard_footer') ?>
 
-
-<!-- jsGrid -->
-<?= $this->include('layouts/javascript_loader') ?>
-
-<script src="plugins/jsgrid/demos/db.js"></script>
-<script src="plugins/jsgrid/jsgrid.min.js"></script>
-
 <script>
   $(function() {
     $("#jsGrid1").jsGrid({

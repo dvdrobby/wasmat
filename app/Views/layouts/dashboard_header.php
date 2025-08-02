@@ -20,9 +20,6 @@
     <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-    <!-- jsGrid -->
-    <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
-    <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
