@@ -26,7 +26,9 @@
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Please login using username</p>
-        <div id="infoMessage"><?php echo $message; ?></div>
+        <?php if (isset($message)): ?>
+          <?= $message ?>
+        <?php endif; ?>
 
         <?php echo form_open('auth/login'); ?>
 

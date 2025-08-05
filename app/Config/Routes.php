@@ -7,12 +7,12 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes) {
+    $routes->add('register', 'Auth::create_user');
     $routes->add('login', 'Auth::login');
     $routes->get('logout', 'Auth::logout');
     $routes->add('forgot_password', 'Auth::forgot_password');
     // $routes->get('/', 'Auth::index');
-    // $routes->add('create_user', 'Auth::create_user');
-    // $routes->add('edit_user/(:num)', 'Auth::edit_user/$1');
+    $routes->add('edit_user/(:num)', 'Auth::edit_user/$1');
     // $routes->add('create_group', 'Auth::create_group');
     // $routes->get('activate/(:num)', 'Auth::activate/$1');
     // $routes->get('activate/(:num)/(:hash)', 'Auth::activate/$1/$2');
@@ -21,9 +21,26 @@ $routes->group('auth', ['namespace' => 'IonAuth\Controllers'], function ($routes
     // $routes->post('reset_password/(:hash)', 'Auth::reset_password/$1');
     // ...
 });
+
 $routes->get('/dashboard', 'Dashboard::index');
-$routes->get('/pelanggaran', 'Pelanggaran::index');
-$routes->get('/pelanggaran/tambah', 'Pelanggaran::tambah');
-$routes->get('/klasifikasi', 'Klasifikasi::index');
-$routes->get('/teguran', 'Teguran::index');
-$routes->get('/pelapor', 'Pelapor::index');
+//pelanggaran
+$routes->group('pelanggaran', ['filter' => 'auth-filter'], function ($routes) {
+    $routes->get('/', 'Pelanggaran::index');
+    $routes->get('/tambah', 'Pelanggaran::tambah');
+});
+//klasifikasi
+$routes->group('klasifikasi', ['filter' => 'auth-filter'], function ($routes) {
+    $routes->get('/', 'Klasifikasi::index');
+});
+//teguran
+$routes->group('teguran', ['filter' => 'auth-filter'], function ($routes) {
+    $routes->get('/', 'Teguran::index');
+});
+//pelapor
+$routes->group('pelapor', ['filter' => 'auth-filter'], function ($routes) {
+    $routes->get('/', 'Pelapor::index');
+});
+//user
+$routes->group('user', ['filter' => 'auth-filter'], function ($routes) {
+    $routes->get('/', 'User::index');
+});

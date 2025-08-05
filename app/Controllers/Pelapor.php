@@ -11,10 +11,6 @@ class Pelapor extends BaseController
             "navigasi" => "pelapor"
         ];
 
-        if (!$this->ionAuth->loggedIn()) {
-            return redirect()->to('auth/login');
-        }
-
         return view('pelapor/pelapor_view', $data);
     }
 }

@@ -161,7 +161,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>user" class="nav-link <?= $navigasi == '' ? 'active' : '' ?>">
+                            <a href="<?= base_url() ?>user" class="nav-link <?= $navigasi == 'user' ? 'active' : '' ?>">
                                 <i class="fas fa-user"></i>
                                 <p>User Manajemen</p>
                             </a>
