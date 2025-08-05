@@ -41,6 +41,6 @@ $routes->group('pelapor', ['filter' => 'auth-filter'], function ($routes) {
     $routes->get('/', 'Pelapor::index');
 });
 //user
-$routes->group('user', ['filter' => 'auth-filter'], function ($routes) {
+$routes->group('user', ['filter' => ['auth-filter', 'auth-admin']], function ($routes) {
     $routes->get('/', 'User::index');
 });
