@@ -65,5 +65,5 @@
 
 <!-- Footer -->
 <?= $this->include('layouts/dashboard_footer') ?>
-
+<?= $this->include('layouts/javascript_loader') ?>
 <?= $this->include('layouts/closing_tag') ?>

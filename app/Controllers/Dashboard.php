@@ -4,17 +4,14 @@ namespace App\Controllers;
 
 class Dashboard extends BaseController
 {
+    public function __construct()
+    {
+        $this->data['navigasi'] = "Dashboard";
+    }
     public function index()
     {
-        $data = [
-            "title" => "Dashboard",
-            "navigasi" => "Dashboard"
-        ];
+        $this->data['title'] = 'Dashboard';
 
-        if (!$this->ionAuth->loggedIn()) {
-            return redirect()->to('auth/login');
-        }
-
-        return view('dashboard_view', $data);
+        return view('dashboard_view', $this->data);
     }
 }

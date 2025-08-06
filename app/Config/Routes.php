@@ -26,18 +26,18 @@ $routes->get('/dashboard', 'Dashboard::index');
 //pelanggaran
 $routes->group('pelanggaran', ['filter' => 'auth-filter'], function ($routes) {
     $routes->get('/', 'Pelanggaran::index');
-    $routes->get('/tambah', 'Pelanggaran::tambah');
+    $routes->get('tambah', 'Pelanggaran::tambah');
 });
 //klasifikasi
-$routes->group('klasifikasi', ['filter' => 'auth-filter'], function ($routes) {
+$routes->group('klasifikasi', ['filter' => ['auth-filter', 'auth-admin']], function ($routes) {
     $routes->get('/', 'Klasifikasi::index');
 });
 //teguran
-$routes->group('teguran', ['filter' => 'auth-filter'], function ($routes) {
+$routes->group('teguran', ['filter' => ['auth-filter', 'auth-admin']], function ($routes) {
     $routes->get('/', 'Teguran::index');
 });
 //pelapor
-$routes->group('pelapor', ['filter' => 'auth-filter'], function ($routes) {
+$routes->group('pelapor', ['filter' => ['auth-filter', 'auth-admin']], function ($routes) {
     $routes->get('/', 'Pelapor::index');
 });
 //user

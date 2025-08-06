@@ -100,13 +100,16 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                    <a class="nav-link">
+                        <?php if ($auth->isAdmin()): ?>
+                            <div class="text-bold">
+                                Admin
+                            </div>
+                        <?php else: ?>
+                            <div class="text-bold">
+                                User
+                            </div>
+                        <?php endif ?>
                     </a>
                 </li>
             </ul>
@@ -136,36 +139,58 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>pelanggaran" class="nav-link <?= $navigasi == 'pelanggaran' ? 'active' : '' ?>">
+                        <li class="nav-item <?= $navigasi == 'pelanggaran' ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= $navigasi == 'pelanggaran' || $navigasi == 'rekomtek' || $navigasi == 'sempadan' ? 'active' : '' ?>">
                                 <i class="fas fa-table"></i>
-                                <p>Rekap Data</p>
+                                <p>Rekap Data <i class="right fas fa-angle-left"></i></p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url() ?>pelanggaran" class="nav-link <?= $navigasi == 'pelanggaran' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Pelanggaran</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link <?= $navigasi == 'rekomtek' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Rekomtek</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link <?= $navigasi == 'sempadan' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Sempadan</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>klasifikasi" class="nav-link <?= $navigasi == 'klasifikasi' ? 'active' : '' ?>">
-                                <i class="fas fa-copy"></i>
-                                <p>Jenis Pelanggaran</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>teguran" class="nav-link <?= $navigasi == 'teguran' ? 'active' : '' ?>">
-                                <i class="fas fa-columns"></i>
-                                <p>Level Teguran</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>pelapor" class="nav-link <?= $navigasi == 'pelapor' ? 'active' : '' ?>">
-                                <i class="fas fa-plus-square"></i>
-                                <p>Data Pelapor/ Penindak</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>user" class="nav-link <?= $navigasi == 'user' ? 'active' : '' ?>">
-                                <i class="fas fa-user"></i>
-                                <p>User Manajemen</p>
-                            </a>
-                        </li>
+                        <?php if ($auth->isAdmin()): ?>
+                            <li class="nav-item">
+                                <a href="<?= base_url() ?>klasifikasi" class="nav-link <?= $navigasi == 'klasifikasi' ? 'active' : '' ?>">
+                                    <i class="fas fa-copy"></i>
+                                    <p>Jenis Pelanggaran</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url() ?>teguran" class="nav-link <?= $navigasi == 'teguran' ? 'active' : '' ?>">
+                                    <i class="fas fa-columns"></i>
+                                    <p>Level Teguran</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url() ?>pelapor" class="nav-link <?= $navigasi == 'pelapor' ? 'active' : '' ?>">
+                                    <i class="fas fa-plus-square"></i>
+                                    <p>Data Pelapor/ Penindak</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url() ?>user" class="nav-link <?= $navigasi == 'user' ? 'active' : '' ?>">
+                                    <i class="fas fa-user"></i>
+                                    <p>User Manajemen</p>
+                                </a>
+                            </li>
+                        <?php endif ?>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>auth/logout" class="nav-link">
                                 <!-- <i class="nav-icon fas fa-th"></i> -->

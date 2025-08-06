@@ -4,17 +4,15 @@ namespace App\Controllers;
 
 class Klasifikasi extends BaseController
 {
+    public function __construct()
+    {
+        $this->data['navigasi'] = "klasifikasi";
+    }
+
     public function index()
     {
-        $data = [
-            "title" => "Data Klasifikasi Pelanggaran",
-            "navigasi" => "klasifikasi"
-        ];
+        $this->data['title'] = "Data Klasifikasi Pelanggaran";
 
-        if (!$this->ionAuth->loggedIn()) {
-            return redirect()->to('auth/login');
-        }
-
-        return view('klasifikasi/klasifikasi_view', $data);
+        return view('klasifikasi/klasifikasi_view', $this->data);
     }
 }

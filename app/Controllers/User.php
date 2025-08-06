@@ -4,13 +4,15 @@ namespace App\Controllers;
 
 class User extends BaseController
 {
+    public function __construct()
+    {
+        $this->data['navigasi'] = "user";
+    }
+
     public function index(): string
     {
-        $data = [
-            "title" => "User Manajemen",
-            "navigasi" => "user"
-        ];
+        $this->data['title'] = "User Manajemen";
 
-        return view('user/user_view', $data);
+        return view('user/user_view', $this->data);
     }
 }

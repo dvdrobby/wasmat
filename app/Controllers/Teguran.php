@@ -4,17 +4,15 @@ namespace App\Controllers;
 
 class Teguran extends BaseController
 {
+    public function __construct()
+    {
+        $this->data['navigasi'] = "teguran";
+    }
+
     public function index()
     {
-        $data = [
-            "title" => "Level Teguran",
-            "navigasi" => "teguran"
-        ];
+        $this->data['title'] = "Level Teguran";
 
-        if (!$this->ionAuth->loggedIn()) {
-            return redirect()->to('auth/login');
-        }
-
-        return view('teguran/teguran_view', $data);
+        return view('teguran/teguran_view', $this->data);
     }
 }

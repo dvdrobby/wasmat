@@ -9,12 +9,20 @@
     <!-- /.card-header -->
     <div class="card-body">
       <div class="row mb-3">
-        <div class="col-sm-12 col-md-6">
-          <div class="dt-buttons btn-group flex-wrap">
-            <a href="<?= base_url() ?>pelanggaran/tambah" class="btn btn-primary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah</span></a>
-            <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+        <?php if ($auth->isAdmin()): ?>
+          <div class="col-sm-12 col-md-6">
+            <div class="dt-buttons btn-group flex-wrap">
+              <a href="<?= base_url() ?>pelanggaran/tambah" class="btn btn-primary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah</span></a>
+              <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+            </div>
           </div>
-        </div>
+        <?php else: ?>
+          <div class="col-sm-12 col-md-6">
+            <div class="dt-buttons flex-wrap">
+              <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+            </div>
+          </div>
+        <?php endif ?>
         <div class="col-sm-12 col-md-6">
           <!-- <div class="fw-light">Search:</div> -->
           <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">
@@ -76,50 +84,5 @@
 
 <!-- Footer -->
 <?= $this->include('layouts/dashboard_footer') ?>
-
-<script>
-  $(function() {
-    $("#jsGrid1").jsGrid({
-      height: "100%",
-      width: "100%",
-
-      sorting: true,
-      paging: true,
-
-      data: db.clients,
-
-      fields: [{
-          name: "name",
-          title: "Nama Pelanggaran",
-          type: "text",
-          width: 150
-        },
-        {
-          name: "kota",
-          title: "Kota",
-          type: "text",
-          width: 100
-        },
-        {
-          name: "sp",
-          title: "SP",
-          type: "number",
-          width: 30
-        },
-        {
-          name: "ppns",
-          title: "PPNS",
-          type: "text",
-          width: 100
-        },
-        {
-          name: "action",
-          type: "checkbox",
-          title: "Tindakan",
-          width: 50
-        }
-      ]
-    });
-  });
-</script>
+<?= $this->include('layouts/javascript_loader') ?>
 <?= $this->include('layouts/closing_tag') ?>
