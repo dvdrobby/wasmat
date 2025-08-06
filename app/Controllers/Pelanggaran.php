@@ -19,6 +19,10 @@ class Pelanggaran extends BaseController
     public function tambah()
     {
         $this->data['title'] = "Tambah Data Pelanggaran";
+        $this->data['breadcumb'] = [
+            'title' => 'Data Pelanggaran',
+            'link' => 'pelanggaran'
+        ];
 
         return view('pelanggaran/tambah_view', $this->data);
     }
