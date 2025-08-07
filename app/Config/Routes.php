@@ -43,4 +43,5 @@ $routes->group('pelapor', ['filter' => ['auth-filter', 'auth-admin']], function 
 //user
 $routes->group('user', ['filter' => ['auth-filter', 'auth-admin']], function ($routes) {
     $routes->get('/', 'User::index');
+    $routes->delete('delete/(:num)', 'User::delete/$1');
 });

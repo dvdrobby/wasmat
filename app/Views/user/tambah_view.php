@@ -9,6 +9,9 @@
       <div class="card-header">
         <h3 class="card-title">Form Registrasi User Baru</h3>
       </div>
+      <div class="row mb-3">
+        <div class="col-md-6"><?= $message; ?></div>
+      </div>
       <?php echo form_open('auth/create_user'); ?>
       <!-- Date -->
       <div class="row">
@@ -93,9 +96,5 @@
 <?= $this->include('layouts/dashboard_footer') ?>
 <!-- jsGrid -->
 <?= $this->include('layouts/javascript_loader') ?>
-<script>
-  $('#reservationdate').datetimepicker({
-    format: 'L'
-  });
-</script>
+
 <?= $this->include('layouts/closing_tag') ?>

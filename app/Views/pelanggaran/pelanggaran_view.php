@@ -9,26 +9,30 @@
     <!-- /.card-header -->
     <div class="card-body">
       <div class="row mb-3">
+        <div class="col-md-12"><?= $message; ?></div>
+      </div>
+      <div class="row mb-3">
         <?php if ($auth->isAdmin()): ?>
           <div class="col-sm-12 col-md-6">
             <div class="dt-buttons btn-group flex-wrap">
               <a href="<?= base_url() ?>pelanggaran/tambah" class="btn btn-primary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah</span></a>
-              <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+              <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><i class="fas fa-download mr-2"></i><span>Export to Excel</span></button>
             </div>
           </div>
         <?php else: ?>
           <div class="col-sm-12 col-md-6">
             <div class="dt-buttons flex-wrap">
-              <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+              <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><i class="fas fa-download mr-2"></i><span>Export to Excel</span></button>
             </div>
           </div>
         <?php endif ?>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 my-2">
           <!-- <div class="fw-light">Search:</div> -->
           <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">
         </div>
+
       </div>
-      <div class="card-body">
+      <div class="row">
         <table class="table table-bordered">
           <thead>
             <tr>
