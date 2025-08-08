@@ -11,7 +11,7 @@
                   </div>
                   <div class="card-body">
                         <div class="row">
-                              <div class="col-md-12"><?= $message; ?></div>
+                              <?= $message; ?>
                         </div>
                         <?php echo form_open(uri_string(), array("class" => 'card-body')); ?>
                         <!-- Date -->
@@ -91,53 +91,3 @@
 <!-- jsGrid -->
 <?= $this->include('layouts/javascript_loader') ?>
 <?= $this->include('layouts/closing_tag') ?>
-
-
-
-<div id="infoMessage"><?php echo $message; ?></div>
-
-<?php echo form_open(uri_string()); ?>
-
-<p>
-      <?php echo form_label(lang('Auth.edit_user_fname_label'), 'first_name'); ?> <br />
-      <?php echo form_input($first_name); ?>
-</p>
-
-<p>
-      <?php echo form_label(lang('Auth.edit_user_lname_label'), 'last_name'); ?> <br />
-      <?php echo form_input($last_name); ?>
-</p>
-
-
-<p>
-      <?php echo form_label(lang('Auth.edit_user_password_label'), 'password'); ?> <br />
-      <?php echo form_input($password); ?>
-</p>
-
-<p>
-      <?php echo form_label(lang('Auth.edit_user_password_confirm_label'), 'password_confirm'); ?><br />
-      <?php echo form_input($password_confirm); ?>
-</p>
-
-<?php if ($ionAuth->isAdmin()): ?>
-
-      <h3><?php echo lang('Auth.edit_user_groups_heading'); ?></h3>
-      <?php foreach ($groups as $group): ?>
-            <label class="checkbox">
-                  <?php
-                  $gID = $group['id'];
-                  $checked = null;
-                  $item = null;
-                  foreach ($currentGroups as $grp) {
-                        if ($gID == $grp->id) {
-                              $checked = ' checked="checked"';
-                              break;
-                        }
-                  }
-                  ?>
-                  <input type="checkbox" name="groups[]" value="<?php echo $group['id']; ?>" <?php echo $checked; ?>>
-                  <?php echo htmlspecialchars($group['name'], ENT_QUOTES, 'UTF-8'); ?>
-            </label>
-      <?php endforeach ?>
-
-<?php endif ?>

@@ -11,7 +11,7 @@
                   </div>
                   <div class="card-body">
                         <div class="row">
-                              <div class="col-md-12"><?= $message; ?></div>
+                              <?= $message; ?>
                         </div>
                         <?php echo form_open('auth/register', array("class" => 'card-body')); ?>
                         <!-- Date -->

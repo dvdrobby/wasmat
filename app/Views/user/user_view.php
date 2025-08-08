@@ -10,6 +10,7 @@
     <!-- /.card-header -->
     <div class="card-body">
       <div class="row mb-3">
+
         <div class="col-md-12"><?= $message; ?></div>
       </div>
       <div class="row mb-3">
@@ -40,7 +41,7 @@
               <td><?= $user->name ?></td>
               <td>
                 <a class="badge bg-info" href="<?= base_url() ?>auth/edit_user/<?= $user->user_id ?>">Edit</a>
-                <a class="badge bg-danger" href="" data-toggle="modal" data-target="#modal-default">Hapus</button>
+                <a class="badge bg-danger" href="" data-toggle="modal" data-target="#modal-default">Hapus</a>
               </td>
             </tr>
           <?php endforeach ?>
@@ -74,16 +75,9 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.card-body -->
-      <!-- <div class="card-footer clearfix">
-        <ul class="pagination pagination-sm m-0 float-right">
-          <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-        </ul>
-      </div> -->
+
     </div>
+    <!-- Pagination -->
     <?php // echo $pager->links() 
     ?>
     <?php echo $pager->simplelinks('users_groups', 'custom_pagination')

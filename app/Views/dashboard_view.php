@@ -4,6 +4,7 @@
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
     <div class="row">
+      <div class="col-md-12"><?= $message; ?></div>
       <div class="col-lg-4 col-6">
         <!-- small box -->
         <div class="small-box bg-info">

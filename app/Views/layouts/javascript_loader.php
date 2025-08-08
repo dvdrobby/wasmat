@@ -37,8 +37,38 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- bs-custom-file-input -->
 <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- Toastr -->
+<script src="plugins/toastr/toastr.min.js"></script>
 
+<script>
+    $(document).ready(function() {
+        var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
 
+        const elementToast = $('.toastr')
+        const dataToasts = [elementToast.data('toastMessage')]
+
+        console.log(dataToasts)
+
+        console.log(elementToast.length)
+        if (elementToast && elementToast.length > 0) {
+            console.log("if else")
+            elementToast.each((element, index) => {
+                console.log($(index).data('type'))
+                if ($(index).data('type') == 'success') {
+                    toastr.success($(index).data('toastMessage'))
+                } else {
+                    toastr.error($(index).data('toastMessage'))
+                }
+            });
+
+        }
+    });
+</script>
 <script>
     $(function() {
         bsCustomFileInput.init();

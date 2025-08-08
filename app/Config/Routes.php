@@ -45,3 +45,7 @@ $routes->group('user', ['filter' => ['auth-filter', 'auth-admin']], function ($r
     $routes->get('/', 'User::index');
     $routes->delete('delete/(:num)', 'User::delete/$1');
 });
+
+
+//Flash message dengan javascript
+$routes->get('/get-flash-message', 'MessageController::getFlashMessage');

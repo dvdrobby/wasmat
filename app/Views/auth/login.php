@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
 </head>
 
 <body class="hold-transition login-page">
@@ -26,9 +28,7 @@
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Please login using username</p>
-        <?php if (isset($message)): ?>
-          <?= $message ?>
-        <?php endif; ?>
+        <div class="col-md-12"><?= $message; ?></div>
 
         <?php echo form_open('auth/login'); ?>
 
@@ -64,12 +64,5 @@
     </div>
     <!-- /.login-box -->
 
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-</body>
-
-</html>
+    <?= $this->include('layouts/javascript_loader') ?>
+    <?= $this->include('layouts/closing_tag') ?>

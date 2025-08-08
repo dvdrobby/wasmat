@@ -10,18 +10,16 @@ class User extends BaseController
 {
     protected $userModel;
     protected $tableUserModel;
-    protected $db;
-    protected $query;
     protected $session;
     protected $ionAuth;
 
     public function __construct()
     {
         $this->ionAuth    = new Auth;
+        $this->session = \Config\Services::session();
         $this->userModel = new UserModel;
         $this->tableUserModel = new TableUserModel;
         $this->data['navigasi'] = "user";
-        $this->session = \Config\Services::session();
     }
 
     public function index(): string
@@ -38,9 +36,7 @@ class User extends BaseController
     public function delete($id)
     {
         $this->tableUserModel->delete($id) ?
-            $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-		Data user berhasil dihapus.
-	</div>') : null;
+            $this->session->setFlashdata('message', '<div class="toastr" data-type="success" data-toast-message="Data user berhasil dihapus."></div>') : $this->session->setFlashdata('error', 'Terjadi Kesalahan.');
 
         return redirect()->to('user')->withCookies();
     }
